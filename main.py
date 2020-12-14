@@ -50,7 +50,6 @@ def run():
     print(lastSwitched)
   print (acc)
 
-
 #   input="""shiny gold bags contain 2 dark red bags.
 # dark red bags contain 2 dark orange bags.
 # dark orange bags contain 2 dark yellow bags.
