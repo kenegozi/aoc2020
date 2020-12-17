@@ -2,11 +2,33 @@ import re
 
 def run():
   input = get_input()
-
+  
   numbers = [int(i) for i in input.split()]
   size = 25
 
-  print(notin(numbers, size))
+  target = notin(numbers, size)
+
+  (l, h) = (0,0)
+  sum = numbers[0]
+  while h < len(numbers):
+    if sum == target:
+      break
+    if sum < target:
+      h += 1
+      if h < len(numbers):
+        sum += numbers[h]
+      continue
+    if sum > target:
+      sum -= numbers[l]
+      l += 1
+      continue
+  minv = numbers[l]
+  maxv = numbers[l]
+  for i in range(l,h+1):
+    maxv=max(maxv,numbers[i])
+    minv=min(minv,numbers[i])
+
+  print (minv+maxv)
 
 def notin(numbers, size):
   for cur in range(size, len(numbers)):
